@@ -10,15 +10,19 @@ export const QuizList = ({
     editQuiz,
     deleteQuiz,
     showModal
-}: { quizzes: Quiz[]; editQuiz: (qId: number, newQuiz: Quiz) => void; deleteQuiz: (qId: number) => void; showModal: () => void; }) => {
-    // FIX above - add prop types
+}: {
+    quizzes:Quiz[];
+    editQuiz: (qId: number, newQuiz: Quiz) => void;
+    deleteQuiz: (qId: number) => void; 
+    showModal: () => void; 
+}) => {
     const [displayId, setDisplayId] = useState<null | number>(null);
 
-    const handleQuizView = (id: number): void => {
+    const handleQuizView = (id: number) => {
         setDisplayId(id);
     };
 
-    const resetQuizView = (): void => {
+    const resetQuizView = () => {
         setDisplayId(null);
     };
 
