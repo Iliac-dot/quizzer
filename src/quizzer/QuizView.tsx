@@ -12,13 +12,13 @@ export const QuizView = ({
     resetView
 }: {
     quiz: Quiz;
-    editQuiz: (id: number, newQuiz: Quiz) => void;
-    deleteQuiz: (id: number) => void;
-    resetView: () => void;
+    editQuiz: (qId: number, newQuiz: Quiz) => void;
+    deleteQuiz: (qId: number) => void;
+    resetView: () => void; // FIX: add typings for props
 }) => {
     const [edit, setEdit] = useState(false);
 
-    const switchEdit = () => {
+    const switchEdit = (): void => {
         setEdit(!edit);
     };
 
@@ -42,5 +42,5 @@ export const QuizView = ({
                 ></QuizExpanded>
             )}
         </div>
-        );
-    }
+    );
+}
