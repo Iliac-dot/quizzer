@@ -4,12 +4,16 @@ import { Button, Modal, Form } from "react-bootstrap";
 export const AddQuizModal = ({
     show,
     handleClose,
-    addQuiz
+    addQuiz,
 }: {
+    show: boolean;
+    handleClose: ()=>void;
+    addQuiz: (title: string, body: string)=>void;
 }) => {
     const [title, setTitle] = useState<string>("Example Quiz");
+    const [body, setBody] = useState<string>("Example Description"); 
 
-    const saveChanges = () => {
+    const saveChanges = (): void => {
         addQuiz(title, body);
         setTitle("Example Quiz");
         setBody("Example Description");
@@ -36,7 +40,8 @@ export const AddQuizModal = ({
                             as="textarea"
                             rows={3}
                             value={body}
-                            onChange={}
+                            onChange={(
+                                e: React.ChangeEvent<HTMLInputElement>) => setBody(e.target.value)}
                         ></Form.Control>
                     </Form.Group>
                 </Modal.Body>
